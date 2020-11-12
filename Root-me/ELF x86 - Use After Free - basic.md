@@ -311,7 +311,7 @@ Mapped address spaces:
 0x9595010:      0x00000000      0x08048765      0x080487cb      0x08048871
 0x9595020:      0x00000000      0x00020fe1      0x00000000      0x00000000
 ```
-- **0x41414141** chính là **AAAA** do ta nhập vào. 8 byte **\x00** tiếp theo là vùng nhớ được cấp cho **name[12]**. **0x08048765** là địa chỉ con trỏ **bark**, **0x080487cb** là địa chỉ con trỏ **bringBackTheFlag**, **0x08048871** là con trỏ **death** . Ta có thể kiểm tra bằng lệnh **info symbol**.
+- **0x41414141** chính là **AAAA** do ta nhập vào. 8 byte **\x00** tiếp theo là vùng nhớ được cấp cho **name[12]**. **0x08048765** là vùng nhớ con trỏ **bark** trỏ vào, **0x080487cb** là vùng nhớ con trỏ **bringBackTheFlag** trỏ vào, **0x08048871** là vùng nhớ con trỏ **death** trỏ vào. Ta có thể kiểm tra bằng lệnh **info symbol**.
 
 ```
 (gdb) info symbol 0x08048765
